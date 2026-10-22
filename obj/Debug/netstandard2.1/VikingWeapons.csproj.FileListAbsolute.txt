@@ -1,0 +1,10 @@
+c:\Users\Rasmus\Documents\Code projects\VikingWeapons\obj\Debug\netstandard2.1\VikingWeapons.csproj.AssemblyReference.cache
+c:\Users\Rasmus\Documents\Code projects\VikingWeapons\obj\Debug\netstandard2.1\VikingWeapons.GeneratedMSBuildEditorConfig.editorconfig
+c:\Users\Rasmus\Documents\Code projects\VikingWeapons\obj\Debug\netstandard2.1\VikingWeapons.AssemblyInfoInputs.cache
+c:\Users\Rasmus\Documents\Code projects\VikingWeapons\obj\Debug\netstandard2.1\VikingWeapons.AssemblyInfo.cs
+c:\Users\Rasmus\Documents\Code projects\VikingWeapons\obj\Debug\netstandard2.1\VikingWeapons.csproj.CoreCompileInputs.cache
+c:\Users\Rasmus\Documents\Code projects\VikingWeapons\bin\Debug\netstandard2.1\VikingWeapons.deps.json
+c:\Users\Rasmus\Documents\Code projects\VikingWeapons\bin\Debug\netstandard2.1\VikingWeapons.dll
+c:\Users\Rasmus\Documents\Code projects\VikingWeapons\bin\Debug\netstandard2.1\VikingWeapons.pdb
+c:\Users\Rasmus\Documents\Code projects\VikingWeapons\obj\Debug\netstandard2.1\VikingWeapons.dll
+c:\Users\Rasmus\Documents\Code projects\VikingWeapons\obj\Debug\netstandard2.1\VikingWeapons.pdb
