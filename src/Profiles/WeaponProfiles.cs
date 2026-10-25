@@ -20,7 +20,8 @@ namespace VikingWeapons.Profiles
                 swordProfile.AddStep("primary_2", ModConfig.SwordDamageMultiplier.Value, cleave);
                 swordProfile.AddStep("primary_3", ModConfig.SwordFinisherMultiplier.Value, cleave);
 
-                var swordSec = new AttackStepModifiers(defaultMultiplier: 3.0f, cleave: cleave);
+                float secCleave = ModConfig.SwordSecondaryCleave.Value;
+                var swordSec = new AttackStepModifiers(defaultMultiplier: ModConfig.SwordSecondaryDamageMultiplier.Value, cleave: secCleave);
                 if (ModConfig.SwordSecondaryPierce.Value)
                 {
                     swordSec.OverrideDamageType = DamageType.Pierce;
@@ -79,6 +80,44 @@ namespace VikingWeapons.Profiles
                 }
                 spearProfile.Steps["secondary"] = spearSec;
                 WeaponAttackRegistry.Register("category_spear", spearProfile);
+            }
+
+            // 5. Knives Overhaul: Slash on primary_1 & 2, Pierce on primary_3 & secondary
+            if (ModConfig.KnifeOverhaulEnabled.Value)
+            {
+                var knifeProfile = new WeaponAttackProfile();
+                float cleave = ModConfig.KnifePrimaryCleave.Value;
+
+                var p1 = new AttackStepModifiers(defaultMultiplier: ModConfig.KnifeDamageMultiplier.Value, cleave: cleave);
+                if (ModConfig.KnifePrimarySlashDamage.Value)
+                {
+                    p1.OverrideDamageType = DamageType.Slash;
+                }
+                knifeProfile.Steps["primary_1"] = p1;
+
+                var p2 = new AttackStepModifiers(defaultMultiplier: ModConfig.KnifeDamageMultiplier.Value, cleave: cleave);
+                if (ModConfig.KnifePrimarySlashDamage.Value)
+                {
+                    p2.OverrideDamageType = DamageType.Slash;
+                }
+                knifeProfile.Steps["primary_2"] = p2;
+
+                var p3 = new AttackStepModifiers(defaultMultiplier: ModConfig.KnifeFinisherMultiplier.Value, cleave: cleave);
+                if (ModConfig.KnifeFinisherPierceDamage.Value)
+                {
+                    p3.OverrideDamageType = DamageType.Pierce;
+                }
+                knifeProfile.Steps["primary_3"] = p3;
+
+                float secCleave = ModConfig.KnifeSecondaryCleave.Value;
+                var knifeSec = new AttackStepModifiers(defaultMultiplier: ModConfig.KnifeSecondaryDamageMultiplier.Value, cleave: secCleave);
+                if (ModConfig.KnifeSecondaryPierceDamage.Value)
+                {
+                    knifeSec.OverrideDamageType = DamageType.Pierce;
+                }
+                knifeProfile.Steps["secondary"] = knifeSec;
+
+                WeaponAttackRegistry.Register("category_knife", knifeProfile);
             }
         }
     }

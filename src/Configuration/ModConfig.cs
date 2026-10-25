@@ -24,6 +24,8 @@ namespace VikingWeapons.Configuration
         public static ConfigEntry<float> SwordDamageMultiplier = null!;
         public static ConfigEntry<float> SwordFinisherMultiplier = null!;
         public static ConfigEntry<bool> SwordSecondaryPierce = null!;
+        public static ConfigEntry<float> SwordSecondaryDamageMultiplier = null!;
+        public static ConfigEntry<float> SwordSecondaryCleave = null!;
         public static ConfigEntry<float> SwordAttackSpeedMultiplier = null!;
 
         // 4. Clubs / Maces
@@ -54,6 +56,17 @@ namespace VikingWeapons.Configuration
         public static ConfigEntry<bool> PolearmSecondarySlashDamage = null!;
         public static ConfigEntry<float> PolearmSecondaryStaggerMultiplier = null!;
 
+        // 7. Knives
+        public static ConfigEntry<bool> KnifeOverhaulEnabled = null!;
+        public static ConfigEntry<float> KnifePrimaryCleave = null!;
+        public static ConfigEntry<float> KnifeDamageMultiplier = null!;
+        public static ConfigEntry<float> KnifeFinisherMultiplier = null!;
+        public static ConfigEntry<float> KnifeSecondaryDamageMultiplier = null!;
+        public static ConfigEntry<float> KnifeSecondaryCleave = null!;
+        public static ConfigEntry<bool> KnifePrimarySlashDamage = null!;
+        public static ConfigEntry<bool> KnifeFinisherPierceDamage = null!;
+        public static ConfigEntry<bool> KnifeSecondaryPierceDamage = null!;
+
         public static void Init(ConfigFile config)
         {
             ModEnabled = config.Bind("0. General", "ModEnabled", true, "Master toggle for VikingWeapons.");
@@ -76,6 +89,8 @@ namespace VikingWeapons.Configuration
             SwordDamageMultiplier = config.Bind("3. Swords", "SwordDamageMultiplier", 1.10f, "Compensatory base damage step multiplier for Sword primary swings (1.10x).");
             SwordFinisherMultiplier = config.Bind("3. Swords", "SwordFinisherMultiplier", 2.20f, "Compensatory base damage step multiplier for Sword combo finisher (2.20x).");
             SwordSecondaryPierce = config.Bind("3. Swords", "SwordSecondaryPierce", true, "Converts Sword secondary thrust attack damage to Pierce.");
+            SwordSecondaryDamageMultiplier = config.Bind("3. Swords", "SwordSecondaryDamageMultiplier", 3.0f, "Damage multiplier for Sword secondary thrust attack (3.0x).");
+            SwordSecondaryCleave = config.Bind("3. Swords", "SwordSecondaryCleave", 0.25f, "Cleave efficiency factor for Sword secondary thrust attack.");
             SwordAttackSpeedMultiplier = config.Bind("3. Swords", "SwordAttackSpeedMultiplier", 1.10f, "Compensatory attack animation speed multiplier for swords.");
 
             // 4. Clubs
@@ -105,6 +120,19 @@ namespace VikingWeapons.Configuration
             PolearmSecondaryCleave = config.Bind("6. Polearms", "PolearmSecondaryCleave", 0.40f, "Cleave efficiency factor for Atgeir secondary 360-spin (reduced from native 100% to 40%).");
             PolearmSecondarySlashDamage = config.Bind("6. Polearms", "PolearmSecondarySlashDamage", true, "Converts Atgeir secondary spin attack damage to Slash.");
             PolearmSecondaryStaggerMultiplier = config.Bind("6. Polearms", "PolearmSecondaryStaggerMultiplier", 1.0f, "Secondary spin stagger multiplier (down from native 6.0x, relies on 5.0x knockback).");
+
+            // 7. Knives
+            KnifeOverhaulEnabled = config.Bind("7. Knives", "KnifeOverhaulEnabled", true, "Enables the Knife archetype overhaul.");
+            KnifePrimaryCleave = config.Bind("7. Knives", "KnifePrimaryCleave", 0.375f, "Cleave efficiency factor for Knife primary attacks (default 37.5%).");
+            KnifeDamageMultiplier = config.Bind("7. Knives", "KnifeDamageMultiplier", 1.0f, "Base damage step multiplier for Knife primary swings 1 and 2 (1.0x).");
+            KnifeFinisherMultiplier = config.Bind("7. Knives", "KnifeFinisherMultiplier", 2.0f, "Base damage step multiplier for Knife combo finisher thrust 3 (2.0x).");
+            KnifeSecondaryDamageMultiplier = config.Bind("7. Knives", "KnifeSecondaryDamageMultiplier", 3.0f, "Damage multiplier for Knife secondary leap attack (3.0x).");
+            KnifeSecondaryCleave = config.Bind("7. Knives", "KnifeSecondaryCleave", 0.375f, "Cleave efficiency factor for Knife secondary leap attack.");
+            KnifePrimarySlashDamage = config.Bind("7. Knives", "KnifePrimarySlashDamage", true, "Converts Knife primary swings 1 and 2 entirely to Slash damage to match slashing animations.");
+            KnifeFinisherPierceDamage = config.Bind("7. Knives", "KnifeFinisherPierceDamage", true, "Converts Knife combo finisher 3 entirely to Pierce damage to match thrust animation.");
+            KnifeSecondaryPierceDamage = config.Bind("7. Knives", "KnifeSecondaryPierceDamage", true, "Converts Knife secondary leap attack entirely to Pierce damage to match downward stab animation.");
+
+            config.SettingChanged += (_, _) => Profiles.WeaponProfiles.RegisterAll();
         }
     }
 }
