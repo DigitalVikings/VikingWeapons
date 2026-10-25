@@ -1,6 +1,13 @@
-﻿# Changelog
+# Changelog
 
 All notable changes to **VikingWeapons** will be documented in this file.
+
+## [0.2.0] - 2026-10-25
+
+### Added
+- **Knives Archetype Overhaul**: Primary combo attacks deliver Slashing damage, while combo finishers and leap attacks deal heavy Piercing strikes.
+- **Swords Secondary Calibration**: Added secondary damage multiplier and cleave configuration options.
+- **Dynamic Config Reloading**: Automatic in-game weapon profile re-registration upon configuration changes.
 
 ## [0.1.0] - 2026-10-25
 

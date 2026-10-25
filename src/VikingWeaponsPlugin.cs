@@ -12,7 +12,7 @@ namespace VikingWeapons
     {
         public const string ModGUID = "com.digitalvikings.vikingweapons";
         public const string ModName = "VikingWeapons";
-        public const string ModVersion = "0.1.0";
+        public const string ModVersion = "0.2.0";
 
         public static VikingWeaponsPlugin Instance { get; private set; } = null!;
         public static ManualLogSource Log { get; private set; } = null!;

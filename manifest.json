@@ -1,6 +1,6 @@
 {
   "name": "VikingWeapons",
-  "version_number": "0.1.0",
+  "version_number": "0.2.0",
   "website_url": "https://github.com/DigitalVikings/VikingWeapons",
   "description": "Tactile melee weapon overhauls: forward underhand spear thrusts, secondary damage conversions, multi-target cleave, and animation pacing.",
   "dependencies": [
